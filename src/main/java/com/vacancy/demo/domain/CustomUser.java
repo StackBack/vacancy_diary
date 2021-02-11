@@ -23,6 +23,7 @@ public class CustomUser {
     @Column(unique = true)
     private String email;
     @Size(max = 30)
+    @Column(unique = true)
     private String name;
     @Size(max = 30)
     private String lastName;
@@ -31,6 +32,7 @@ public class CustomUser {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Transient
     private String confirmPassword;
     @ManyToMany
     @JoinTable(

@@ -1,6 +1,7 @@
 package com.vacancy.demo.controller;
 
 import com.vacancy.demo.domain.CustomUser;
+import com.vacancy.demo.dto.AuthenticationResponse;
 import com.vacancy.demo.dto.LoginRequest;
 import com.vacancy.demo.dto.RegistrationRequest;
 import com.vacancy.demo.service.AuthService;
@@ -20,13 +21,13 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("/signUp")
+    @PostMapping("/signup")
     public CustomUser signUp(@RequestBody @Valid RegistrationRequest registrationRequest){
         return authService.saveUser(registrationRequest);
     }
 
-    @PostMapping("/signIn")
-    public CustomUser signIn(@RequestBody @Valid LoginRequest loginRequest){
+    @PostMapping("/signin")
+    public AuthenticationResponse signIn(@RequestBody @Valid LoginRequest loginRequest){
         return authService.loginUser(loginRequest);
     }
 }
